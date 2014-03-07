@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.exanthrope.smsplugin"
+    version="1.0.2">
+
+    <name>SmsPlugin</name>
+    <description>Open device SMS application with predefined text.</description>
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+
+        <js-module src="www/smsplugin.js" name="SmsPlugin">
+            <clobbers target="cordova.plugins.SmsPlugin" />
+        </js-module>
+
+        <source-file src="src/android/com/cordova/plugin/SmsPlugin/SmsPlugin.java" target-dir="src/com/cordova/plugin/smsplugin" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SmsPlugin">
+                <param name="android-package" value="com.cordova.plugin.smsplugin.SmsPlugin" />
+            </feature>
+        </config-file>
+
+    </platform>
+
+</plugin>
